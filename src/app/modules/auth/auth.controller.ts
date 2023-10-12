@@ -9,9 +9,8 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
   const result = await AuthService.loginUser(loginUserData);
 
   const token = generateToken({
-    _id: loginUserData?._id,
-    email: loginUserData?.email,
-    role: loginUserData?.role,
+    email: result?.email,
+    role: result?.role,
   });
 
   res.status(200).json({

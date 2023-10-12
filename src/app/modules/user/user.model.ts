@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-this-alias */
 import { Model, Schema, model } from 'mongoose';
 import { IUser } from './user.interface';
 
