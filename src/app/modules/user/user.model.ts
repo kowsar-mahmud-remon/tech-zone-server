@@ -15,14 +15,13 @@ const UserSchema = new Schema<IUser>(
       required: true,
       unique: true,
     },
-    role: {
-      type: String,
-      required: true,
-    },
     password: {
       type: String,
       required: true,
-      select: 0,
+    },
+    role: {
+      type: String,
+      required: true,
     },
   },
   {
