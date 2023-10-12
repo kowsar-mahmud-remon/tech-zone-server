@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "I:\\Web Development\\projects 03\\the-renovation-station-server\\logs\\winston\\errors\\.0118c91db2c96e5698cfcddef24ae2a67a5f06b6-audit.json",
+    "files": [
+        {
+            "date": 1697122710950,
+            "name": "I:\\Web Development\\projects 03\\the-renovation-station-server\\logs\\winston\\errors\\phu-2023-12-10-20-error.log",
+            "hash": "84db3062221ea33b7ce4c7e10963826a57199a0d61c2fa547908471159375e74"
+        },
+        {
+            "date": 1697124324633,
+            "name": "I:\\Web Development\\projects 03\\the-renovation-station-server\\logs\\winston\\errors\\phu-2023-12-10-21-error.log",
+            "hash": "f481959273023f4e6909a4cdfee3867f423b09dfd1d25c5926d7c2e27dbe6011"
+        }
+    ],
+    "hashType": "sha256"
+}

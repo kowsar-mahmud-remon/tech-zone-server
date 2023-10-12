@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "I:\\Web Development\\projects 03\\the-renovation-station-server\\logs\\winston\\successes\\.56f5bd69c8a6bbe71dd958b090816c59f1dd7a2b-audit.json",
+    "files": [
+        {
+            "date": 1697122710944,
+            "name": "I:\\Web Development\\projects 03\\the-renovation-station-server\\logs\\winston\\successes\\phu-2023-12-10-20-success.log",
+            "hash": "1662f68318d04b87edacc4cd64477eaa709feb1b231cb2d2281b4aa226ec7a54"
+        },
+        {
+            "date": 1697124324624,
+            "name": "I:\\Web Development\\projects 03\\the-renovation-station-server\\logs\\winston\\successes\\phu-2023-12-10-21-success.log",
+            "hash": "03e31e0d65ae94c8fa641f360ab5eb0be83774eb08a0518611f7ce55bdf904a4"
+        }
+    ],
+    "hashType": "sha256"
+}
