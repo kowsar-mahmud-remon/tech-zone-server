@@ -2,8 +2,7 @@ import { Request, Response } from 'express';
 import { RequestHandler } from 'express-serve-static-core';
 import httpStatus from 'http-status';
 import catchAsync from '../../../shared/catchAsync';
-import sendResponse from '../../../shared/sendResponse';
-import { IUser } from './user.interface';
+import { generateToken } from '../../../shared/generateToken';
 import { UserService } from './user.service';
 
 const createUser: RequestHandler = catchAsync(
@@ -11,11 +10,18 @@ const createUser: RequestHandler = catchAsync(
     const user = req.body;
     const result = await UserService.createUser(user);
 
-    sendResponse<IUser>(res, {
+    const token = generateToken({
+      email: result?.email,
+      _id: result?._id,
+      role: result?.role,
+    });
+
+    res.status(httpStatus.OK).json({
       statusCode: httpStatus.OK,
       success: true,
       message: 'User created successfully!',
       data: result,
+      token: token,
     });
   }
 );

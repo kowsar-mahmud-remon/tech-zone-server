@@ -4,7 +4,7 @@ import { hashedPassword } from '../../../shared/hashPassword';
 import { IUser } from './user.interface';
 import { User } from './user.model';
 
-const createUser = async (user: IUser): Promise<IUser | null> => {
+const createUser = async (user: IUser) => {
   const { email, password } = user;
 
   const existingUser = await User.findOne({ email: email });
