@@ -6,7 +6,7 @@ const createReviewZodSchema = z.object({
       required_error: 'Review is required',
     }),
 
-    rating: z.string({
+    rating: z.number({
       required_error: 'Rating is required',
     }),
 
