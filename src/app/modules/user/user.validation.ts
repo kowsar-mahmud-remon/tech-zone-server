@@ -20,10 +20,6 @@ const createUserZodSchema = z.object({
       required_error: 'Img Url is required',
     }),
 
-    // role: z.string({
-    //   required_error: 'Role is required',
-    // }),
-
     role: z.enum([...roleEnum] as [string, ...string[]]),
 
     contactNo: z.string({

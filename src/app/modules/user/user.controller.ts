@@ -32,7 +32,7 @@ const getAllUsers = catchAsync(async (req: Request, res: Response) => {
   const allUsers = await UserService.getAllUsers();
 
   if (!allUsers) {
-    throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to create user');
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to get users');
   }
 
   res.status(httpStatus.OK).json({
@@ -49,7 +49,7 @@ const getSingleUser = catchAsync(async (req: Request, res: Response) => {
   const allUser = await UserService.getSingleUser(id);
 
   if (!allUser) {
-    throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to create user');
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to get user');
   }
 
   sendResponse<IUser>(res, {
