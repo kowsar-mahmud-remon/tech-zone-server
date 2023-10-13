@@ -23,7 +23,7 @@ router.get(
 );
 
 router.post(
-  '/create-review',
+  '/create-booking',
   validateRequest(ReviewValidation.createReviewZodSchema),
   // auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   BookingController.createBooking
@@ -42,4 +42,4 @@ router.patch(
   BookingController.updateBooking
 );
 
-export const ReviewRoutes = router;
+export const BookingRoutes = router;
