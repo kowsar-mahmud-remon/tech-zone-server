@@ -9,6 +9,9 @@ const createServiceZodSchema = z.object({
     imgUrl: z.string({
       required_error: 'Img Url is required',
     }),
+    price: z.number({
+      required_error: 'Price is required',
+    }),
 
     description: z.string({
       required_error: 'Description is required',
