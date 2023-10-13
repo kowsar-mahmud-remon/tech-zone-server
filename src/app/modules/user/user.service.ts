@@ -53,9 +53,29 @@ const updateUser = async (id: string, payload: Partial<IUser>) => {
   return result;
 };
 
+const deleteUser = async (id: string) => {
+  // check if the user is exist
+  const isExist = await User.findOne({ id });
+
+  if (!isExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'User not found !');
+  }
+
+  //delete student first
+  const deletedUser = await User.findOneAndDelete(
+    { id },
+    {
+      new: true,
+    }
+  );
+
+  return deletedUser;
+};
+
 export const UserService = {
   createUser,
   getAllUsers,
   getSingleUser,
   updateUser,
+  deleteUser,
 };
