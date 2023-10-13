@@ -19,18 +19,18 @@ const getAllReviews = async () => {
 };
 
 const getSingleReview = async (id: string) => {
-  const result = await Review.findOne({ id });
+  const result = await Review.findOne({ _id: id });
   return result;
 };
 
 const updateReview = async (id: string, payload: Partial<IReview>) => {
-  const isExist = await Review.findOne({ id });
+  const isExist = await Review.findOne({ _id: id });
 
   if (!isExist) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Review not found !');
   }
 
-  const result = await Review.findOneAndUpdate({ id }, payload, {
+  const result = await Review.findOneAndUpdate({ _id: id }, payload, {
     new: true,
   });
 
@@ -38,7 +38,7 @@ const updateReview = async (id: string, payload: Partial<IReview>) => {
 };
 
 const deleteReview = async (id: string) => {
-  const isExist = await Review.findOne({ id });
+  const isExist = await Review.findOne({ _id: id });
 
   if (!isExist) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Review not found !');
@@ -46,7 +46,7 @@ const deleteReview = async (id: string) => {
 
   //delete student first
   const deletedReview = await Review.findOneAndDelete(
-    { id },
+    { _id: id },
     {
       new: true,
     }

@@ -19,18 +19,18 @@ const getAllServices = async () => {
 };
 
 const getSingleService = async (id: string) => {
-  const result = await Service.findOne({ id });
+  const result = await Service.findOne({ _id: id });
   return result;
 };
 
 const updateService = async (id: string, payload: Partial<IService>) => {
-  const isExist = await Service.findOne({ id });
+  const isExist = await Service.findOne({ _id: id });
 
   if (!isExist) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Service not found !');
   }
 
-  const result = await Service.findOneAndUpdate({ id }, payload, {
+  const result = await Service.findOneAndUpdate({ _id: id }, payload, {
     new: true,
   });
 
@@ -38,7 +38,7 @@ const updateService = async (id: string, payload: Partial<IService>) => {
 };
 
 const deleteService = async (id: string) => {
-  const isExist = await Service.findOne({ id });
+  const isExist = await Service.findOne({ _id: id });
 
   if (!isExist) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Service not found !');
@@ -46,7 +46,7 @@ const deleteService = async (id: string) => {
 
   //delete student first
   const deletedService = await Service.findOneAndDelete(
-    { id },
+    { _id: id },
     {
       new: true,
     }
