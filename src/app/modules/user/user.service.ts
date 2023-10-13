@@ -35,18 +35,18 @@ const getAllUsers = async () => {
 };
 
 const getSingleUser = async (id: string) => {
-  const result = await User.findOne({ id });
+  const result = await User.findOne({ _id: id });
   return result;
 };
 
 const updateUser = async (id: string, payload: Partial<IUser>) => {
-  const isExist = await User.findOne({ id });
+  const isExist = await User.findOne({ _id: id });
 
   if (!isExist) {
     throw new ApiError(httpStatus.NOT_FOUND, 'User not found !');
   }
 
-  const result = await User.findOneAndUpdate({ id }, payload, {
+  const result = await User.findOneAndUpdate({ _id: id }, payload, {
     new: true,
   });
 
@@ -55,7 +55,7 @@ const updateUser = async (id: string, payload: Partial<IUser>) => {
 
 const deleteUser = async (id: string) => {
   // check if the user is exist
-  const isExist = await User.findOne({ id });
+  const isExist = await User.findOne({ _id: id });
 
   if (!isExist) {
     throw new ApiError(httpStatus.NOT_FOUND, 'User not found !');
@@ -63,7 +63,7 @@ const deleteUser = async (id: string) => {
 
   //delete student first
   const deletedUser = await User.findOneAndDelete(
-    { id },
+    { _id: id },
     {
       new: true,
     }

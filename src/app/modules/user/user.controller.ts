@@ -46,9 +46,9 @@ const getAllUsers = catchAsync(async (req: Request, res: Response) => {
 const getSingleUser = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id;
 
-  const allUser = await UserService.getSingleUser(id);
+  const singleUser = await UserService.getSingleUser(id);
 
-  if (!allUser) {
+  if (!singleUser) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to get user');
   }
 
@@ -56,7 +56,7 @@ const getSingleUser = catchAsync(async (req: Request, res: Response) => {
     statusCode: httpStatus.OK,
     success: true,
     message: 'User fetched successfully !',
-    data: allUser,
+    data: singleUser,
   });
 });
 
