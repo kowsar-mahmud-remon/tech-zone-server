@@ -18,7 +18,19 @@ const UserSchema = new Schema<IUser>(
       type: String,
       required: true,
     },
+    imgUrl: {
+      type: String,
+      required: true,
+    },
     role: {
+      type: String,
+      required: true,
+    },
+    contactNo: {
+      type: String,
+      required: true,
+    },
+    address: {
       type: String,
       required: true,
     },
