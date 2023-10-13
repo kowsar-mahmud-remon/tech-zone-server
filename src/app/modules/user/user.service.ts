@@ -39,8 +39,23 @@ const getSingleUser = async (id: string) => {
   return result;
 };
 
+const updateUser = async (id: string, payload: Partial<IUser>) => {
+  const isExist = await User.findOne({ id });
+
+  if (!isExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'User not found !');
+  }
+
+  const result = await User.findOneAndUpdate({ id }, payload, {
+    new: true,
+  });
+
+  return result;
+};
+
 export const UserService = {
   createUser,
   getAllUsers,
   getSingleUser,
+  updateUser,
 };

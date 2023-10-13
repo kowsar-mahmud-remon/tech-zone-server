@@ -60,8 +60,27 @@ const getSingleUser = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const updateUser = catchAsync(async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const updatedData = req.body;
+
+  const updatedUser = await UserService.updateUser(id, updatedData);
+
+  if (!updatedUser) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to Update user');
+  }
+
+  sendResponse<IUser>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'User updated successfully !',
+    data: updatedUser,
+  });
+});
+
 export const UserController = {
   createUser,
   getAllUsers,
   getSingleUser,
+  updateUser,
 };
