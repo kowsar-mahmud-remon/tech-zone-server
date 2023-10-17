@@ -54,6 +54,11 @@
             "date": 1697520825668,
             "name": "I:\\Web Development\\projects 03\\tech-zone-server\\logs\\winston\\errors\\phu-2023-17-10-11-error.log",
             "hash": "c02c1342648b86fec7188993708c4c51de9613b47cf076ab01835267f691ff37"
+        },
+        {
+            "date": 1697525353315,
+            "name": "I:\\Web Development\\projects 03\\tech-zone-server\\logs\\winston\\errors\\phu-2023-17-10-12-error.log",
+            "hash": "7707a6007a05c2b15ab9276d4604b3078409582d251810af304aa95a34a6b557"
         }
     ],
     "hashType": "sha256"

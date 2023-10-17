@@ -14,12 +14,12 @@ const createFeedback = async (feedback: IFeedback) => {
 };
 
 const getAllFeedbacks = async () => {
-  const feedback = await Feedback.find({});
+  const feedback = await Feedback.find({}).populate('userId');
   return feedback;
 };
 
 const getSingleFeedback = async (id: string) => {
-  const result = await Feedback.findOne({ _id: id });
+  const result = await Feedback.find({ serviceId: id }).populate('userId');
   return result;
 };
 
