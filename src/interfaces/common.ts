@@ -1,3 +1,4 @@
+import { Types } from 'mongoose';
 import { IGenericErrorMessage } from './error';
 
 export type IGenericResponse<T> = {
@@ -16,6 +17,7 @@ export type IGenericErrorResponse = {
 };
 
 export type IUserAccessTokenData = {
+  _id: Types.ObjectId;
   email: string;
   role: string;
 };

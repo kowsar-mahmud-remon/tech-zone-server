@@ -30,7 +30,7 @@ const createUser = async (user: IUser) => {
 };
 
 const getAllUsers = async () => {
-  const user = await User.find({});
+  const user = await User.find({ role: 'user' });
   return user;
 };
 

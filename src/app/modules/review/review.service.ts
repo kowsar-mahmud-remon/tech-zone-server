@@ -14,12 +14,12 @@ const createReview = async (review: IReview) => {
 };
 
 const getAllReviews = async () => {
-  const review = await Review.find({});
+  const review = await Review.find({}).populate('userId');
   return review;
 };
 
 const getSingleReview = async (id: string) => {
-  const result = await Review.findOne({ _id: id });
+  const result = await Review.find({ serviceId: id }).populate('userId');
   return result;
 };
 

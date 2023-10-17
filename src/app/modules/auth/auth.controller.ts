@@ -5,10 +5,12 @@ import { AuthService } from './auth.service';
 
 const loginUser = catchAsync(async (req: Request, res: Response) => {
   const loginUserData = req.body;
+  console.log({ loginUserData });
 
   const result = await AuthService.loginUser(loginUserData);
 
   const token = generateToken({
+    _id: result?._id,
     email: result?.email,
     role: result?.role,
   });

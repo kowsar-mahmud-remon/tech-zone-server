@@ -14,6 +14,7 @@ const createUser: RequestHandler = catchAsync(
     const result = await UserService.createUser(user);
 
     const token = generateToken({
+      _id: result._id,
       email: result?.email,
       role: result?.role,
     });

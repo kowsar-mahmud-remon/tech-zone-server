@@ -14,6 +14,7 @@ const createAdmin: RequestHandler = catchAsync(
     const result = await AdminService.createAdmin(admin);
 
     const token = generateToken({
+      _id: result?._id,
       email: result?.email,
       role: result?.role,
     });
