@@ -15,6 +15,14 @@ const BookingSchema = new Schema<IBooking>(
       ref: 'Service',
       required: true,
     },
+    serviceName: {
+      type: String,
+      required: true,
+    },
+    servicePrice: {
+      type: Number,
+      required: true,
+    },
   },
   {
     timestamps: true,
