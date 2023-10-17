@@ -1,15 +1,7 @@
 import { z } from 'zod';
 
-const createReviewZodSchema = z.object({
+const createBookingSchema = z.object({
   body: z.object({
-    review: z.string({
-      required_error: 'Review is required',
-    }),
-
-    rating: z.string({
-      required_error: 'Rating is required',
-    }),
-
     userId: z.string({
       required_error: 'UserId is required',
     }),
@@ -20,6 +12,6 @@ const createReviewZodSchema = z.object({
   }),
 });
 
-export const ReviewValidation = {
-  createReviewZodSchema,
+export const BookingValidation = {
+  createBookingSchema,
 };

@@ -1,7 +1,7 @@
 import express from 'express';
 import validateRequest from '../../middlewares/validateRequest';
 import { BookingController } from './booking.controller';
-import { ReviewValidation } from './booking.validation';
+import { BookingValidation } from './booking.validation';
 const router = express.Router();
 
 router.get(
@@ -24,7 +24,7 @@ router.get(
 
 router.post(
   '/create-booking',
-  validateRequest(ReviewValidation.createReviewZodSchema),
+  validateRequest(BookingValidation.createBookingSchema),
   // auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   BookingController.createBooking
 );

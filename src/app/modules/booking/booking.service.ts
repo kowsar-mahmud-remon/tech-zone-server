@@ -19,7 +19,9 @@ const getAllBookings = async () => {
 };
 
 const getSingleUserBooking = async (id: string) => {
-  const result = await Booking.find({ userId: id });
+  const result = await Booking.find({ userId: id })
+    .populate('userId')
+    .populate('serviceId');
   return result;
 };
 
