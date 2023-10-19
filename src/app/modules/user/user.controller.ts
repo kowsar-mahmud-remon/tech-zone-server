@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { RequestHandler } from 'express-serve-static-core';
 import httpStatus from 'http-status';
 import ApiError from '../../../errors/ApiError';
 import catchAsync from '../../../shared/catchAsync';
@@ -8,26 +7,24 @@ import sendResponse from '../../../shared/sendResponse';
 import { IUser } from './user.interface';
 import { UserService } from './user.service';
 
-const createUser: RequestHandler = catchAsync(
-  async (req: Request, res: Response) => {
-    const user = req.body;
-    const result = await UserService.createUser(user);
+const createUser = catchAsync(async (req: Request, res: Response) => {
+  const user = req.body;
+  const result = await UserService.createUser(user);
 
-    const token = generateToken({
-      _id: result._id,
-      email: result?.email,
-      role: result?.role,
-    });
+  const token = generateToken({
+    _id: result._id,
+    email: result?.email,
+    role: result?.role,
+  });
 
-    res.status(httpStatus.OK).json({
-      statusCode: httpStatus.OK,
-      success: true,
-      message: 'User created successfully!',
-      data: result,
-      token: token,
-    });
-  }
-);
+  res.status(httpStatus.OK).json({
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'User created successfully!',
+    data: result,
+    token: token,
+  });
+});
 
 const getAllUsers = catchAsync(async (req: Request, res: Response) => {
   const allUsers = await UserService.getAllUsers();
